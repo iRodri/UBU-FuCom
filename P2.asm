@@ -5,7 +5,7 @@
 ; ---------------------------------
 
 .DATA 0071H ; Compiler Directive
-  dB 1,2,3,4,5,0 ; Compiler Directive
+  dB 1,2,3,4,5 ; Compiler Directive
 .ORG 100AH ; Compiler Directive
 
 LXI H, 71H ; Initialize H Pair 
