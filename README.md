@@ -1,2 +1,4 @@
 # UBU-FuCom
-Prácticas y documentos relativos a la asignatura Fundamentos de Computadores de la Universidad de Burgos. Año 2016-2017.
+*Read this in other language: [English](tree/master), [Español](tree/master-es).*
+
+Solution to assignments proposed in the course *Fundamentos de Computadores* (Computer Basics) in Burgos University.
