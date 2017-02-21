@@ -4,12 +4,13 @@
 ;  PRUEBAS REALIZADAS: Práctica 2 
 ; ---------------------------------
 .DATA 0071H
-  dB 1,2,3,4,5
+  dB 1,2,3,4,5,0
 .ORG 100AH
 LXI H, 71H
+MVI B, 4
 REP: ADD M
 INX H
-CPI FH
-JNZ REP
-STA 76H
+DCR B
+JP REP
+MOV M, A
 HLT
