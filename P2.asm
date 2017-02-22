@@ -1,7 +1,8 @@
 ; ---------------------------------
-;  AUTOR: Díaz García, Rodrigo
-;  FECHA: 21 Febrero 2017
-;  PRUEBAS REALIZADAS: Práctica 2 
+;  AUTHOR: Díaz García, Rodrigo
+;  DATE: 22 February 2017
+;  ASSIGNMENT: P2
+;  REVISION: 1.1 - Updated comments
 ; ---------------------------------
 
 .DATA 0071H ; Compiler Directive
