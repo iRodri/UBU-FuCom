@@ -16,3 +16,7 @@ P1
 - 6.-	Recuperar la dirección de memoria 60FH y almacenar el valor del registro C en la nueva posición de memoria especificada por HL
 
 - 7.-	Guardar el valor del acumulador por la dirección que especifica el par de registros BC, cargar el dato 44H en el Acumulador y guardar el valor del acumulador en la dirección especificada por el par de registros DE<br />
+
+P2
+--------------
+Realizar un programa que sume los 5 primeros números naturales almacenados en  posiciones  de  memoria  consecutivas  a  partir  de  la  dirección    0071h.  Después de sumados llevarlos a una posición de memoria y parar el programa.
