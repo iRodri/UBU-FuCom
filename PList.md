@@ -16,3 +16,7 @@ P1
 6. Restore pointer in address 60FH and store C to the new pointed address
 
 7. Store accumulator's value to pointed address in BC, immediate move 44H to A and store A to pointed address in DE
+
+P2
+--------------
+Add the first 5 natural numbers stored in memory starting at 0071. Store the result and stop the execution.
