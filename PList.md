@@ -3,7 +3,7 @@ List of all exercises
 
 P1
 --------------
-1.	Immediate move values 1, 2, 3, 4, 5, 6 and 7 to registers A, B, C, D, E, H and L respectively
+1. Immediate move values 1, 2, 3, 4, 5, 6 and 7 to registers A, B, C, D, E, H and L respectively
   
 2. Store accumulator's value to address 607H
 
