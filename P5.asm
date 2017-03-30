@@ -21,8 +21,8 @@ HLT ; End
 ; 	@function	MULT
 ; 	@abstract	Multiplies two numbers
 ;	@discussion	This functions gets two numbers,
-;             multiplies them, and returns
-;             the result value.
+;           		multiplies them, and returns
+;             		the result value.
 ;	@param	B	Multiplicand
 ;	@param	C	Multiplier
 ;	@result D	Result of A*B
