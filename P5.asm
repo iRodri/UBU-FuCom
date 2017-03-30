@@ -5,7 +5,7 @@
 ; ---------------------------------
 
 .DATA 1200H ; Comienzo de datos
-  dB 6H, 5H; Valores en memoria a ser multiplicados
+  dB 6H, 5H ; Valores en memoria a ser multiplicados
 .ORG 1000H ; Comienzo de programa
 
 LXI H, 1200H ; Inicializa Par H
