@@ -37,9 +37,9 @@ MULT: ; Start of function MULT
 		RAR ; Rotate A and Carry to the right
 		MOV C, A ; Store remaining bits of multiplier
 		JNC NOT ; if carry=0, goto NOT
-		MOV A, B ; Load content of multiplicand
-		ADD D ; Add current result to multiplied value
-		MOV D, A ; Store current result
+			MOV A, B ; Load content of multiplicand
+			ADD D ; Add current result to multiplied value
+			MOV D, A ; Store current result
 		NOT : ; NOT marker (else)
 			MOV A, B ; Load content of multiplicand
 			RAL ; Rotate A and Carry to the left
