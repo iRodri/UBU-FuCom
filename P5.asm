@@ -34,7 +34,7 @@ MULT: ; Comienzo de función MULT
 		CPI 0H ; Comprobar si es 0 y resetea carry
 		JZ BREAK ; Si C=0, terminar función
 		RAR ; Rotar acumulador y carry hacia la derecha
-		MOV C, A ; Guardar bits restantes en E
+		MOV C, A ; Guardar bits restantes en C
 		JNC NOT ; Si bit en carry es 0, saltar hasta NOT
 		MOV A, B ; Cargar acumulador con primer multiplicando
 		ADD D ; Cargar resultado termporal
