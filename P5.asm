@@ -22,7 +22,7 @@ HLT ; Fin
 ; 	@function	MULT
 ; 	@abstract	Multiplicar dos numeros
 ;	@discussion	Esta función obtiene 2 números, los
-;				multiplica y devuelve el resultado.
+;			multiplica y devuelve el resultado.
 ;	@param	B	Primer multiplicando
 ;	@param	C	Segundo multiplicando
 ;	@result D	Resultado de A*B
