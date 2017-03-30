@@ -37,9 +37,9 @@ MULT: ; Comienzo de función MULT
 		RAR ; Rotar acumulador y carry hacia la derecha
 		MOV C, A ; Guardar bits restantes en C
 		JNC NOT ; Si bit en carry es 0, saltar hasta NOT
-		MOV A, B ; Cargar acumulador con primer multiplicando
-		ADD D ; Sumar resultado temporal con multiplicando
-		MOV D, A ; Guardar nuevo resultado temporal
+			MOV A, B ; Cargar acumulador con primer multiplicando
+			ADD D ; Sumar resultado temporal con multiplicando
+			MOV D, A ; Guardar nuevo resultado temporal
 		NOT : ; Marcador NOT
 			MOV A, B ; Cargar primer multiplicando en A
 			RAL ; Rotar A hacia la izquierda
