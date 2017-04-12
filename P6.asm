@@ -1,7 +1,7 @@
 ; ---------------------------------
 ;  AUTOR: Díaz García, Rodrigo
 ;  FECHA: 29 Marzo 2017
-;  PRUEBAS REALIZADAS: Práctica 5
+;  PRUEBAS REALIZADAS: Práctica 6
 ; ---------------------------------
 
 .ORG 1000H ; Comienzo de datos
