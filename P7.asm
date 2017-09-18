@@ -175,9 +175,6 @@ KPNUM:
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 ; 	@function	UPDATE
 ; 	@abstract	Shows operation in screen
-;	@discussion	Escribe los 2 numeros introducidos,
-;			el modo de operación, el signo, y
-;			el resultado.
 ;	@discussion	Writes the 2 operands, the mode,
 ;			the sign, and the result.
 ;	@input M1600	First operand's ASCII
