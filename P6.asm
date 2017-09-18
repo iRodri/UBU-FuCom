@@ -4,75 +4,74 @@
 ;  PRUEBAS REALIZADAS: Práctica 6
 ; ---------------------------------
 
-.ORG 1000H ; Comienzo de datos
-MVI A, 08H ; Inicializa A, a mascara de interrupciones
-MVI B, FFH ; Inicializa B
-MVI C, FFH ; Inicializa C
-LXI SP, 2000H ; Inicializa SP
-SIM ; Establece la máscara
-REP: ; Ciclo principal
-	EI ; Habilita interrupciones
-	RIM ; Lee máscara
-	JMP REP ; Repite ciclo
+.ORG 1000H
+MVI A, 08H ; Initialize A as interrupt mask
+MVI B, FFH ; Initialize B
+MVI C, FFH ; Initialize C
+LXI SP, 2000H ; Initialize SP
+SIM ; Set iterrupt mask
+REP: ; Main loop
+	EI ; Enable interrupt
+	RIM ; Read interrupt mask
+	JMP REP ; Repeat
 
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 ; 	@interruption	5.5 (2C/44)
-; 	@abstract		Suma o resta 2 números.
-;	@discussion		Interpreta la tecla pulsada en
-;					el puerto 0, si es un número, lo
-;					guarda, si es un operando, realiza
-;					la operación.
-;	@input	0H		Teclado	
-;	@result E		Resultado de A+B o |A-B|
-;	@result D		Signo de A-B (0 Positivo, 1 Negativo)
+; 	@abstract	Adds or subtracts 2 numbers.
+;	@discussion	Checks pressed key in port 0,
+;			stores numbers or executes
+;			mathematical operation.
+;	@input	0H	Keyboard port 0
+;	@result E	Result of A+B or |A-B|
+;	@result D	Sign of A-B (0 positive, 1 negative)
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-.ORG 2CH ; Comienzo de datos de la interrupción 5.5
-IN 00H ; Obtener datos del bus de i/o
-CPI 3AH ; Comprobar si es mayor de 3A
-RNC ; Si lo es, finalizar interrupción
-CPI 30H ; Comprobar si es menor de 30
-JC CHKSGN ; Si lo es, comprobar si es un signo
+.ORG 2CH ; Interrupt 5.5
+IN 00H ; Get key
+CPI 3AH ; Is key > 3A?
+RNC ; if true, return
+CPI 30H ; Is key < 30
+JC CHKSGN ; if true, check if operation
 
-SUI 30H ; Restar 30 para obtener el numero
-PUSH PSW ; Guardar AF
+SUI 30H ; Obtain number
+PUSH PSW ; Store state
 MOV A, B
-CPI FFH ; Comprobar si B está vacio
-JNZ ELSE ; Si lo esta, ir a else
-POP PSW ; Cargar AF guardado
-MOV B, A ; Guardar numero en B
-RET ; Finalizar interrupción
+CPI FFH ; Is B empty?
+JNZ ELSE ; if true, go to else
+POP PSW ; Load state
+MOV B, A ; Store number in B
+RET ; Return
 ELSE:
-	POP PSW ; Cargar AF guardado
-	MOV C, A ; Guardar numero en C
-	RET ; Finalizar interrupción
+	POP PSW ; Load state
+	MOV C, A ; Store number in C
+	RET ; Return
 
 CHKSGN:
-	CPI 2BH ; Comprobar si es +
-	JNZ CHKSGN2 ; Si no lo es, ir a siguiente comprobación
-	MVI D, 0H ; Establecer signo a positivo
+	CPI 2BH ; is key == '+'?
+	JNZ CHKSGN2 ; if false, check other sign
+	MVI D, 0H ; sign = positive
 	MOV A, B ; A = B
 	ADD C ; A = B + C 
-	DAA ; Convertir A a BCD
-	MOV E, A ; Guardar resultado en E
-	MVI B, FFH ; Vaciar B
-	MVI C, FFH ; Vaciar B
-	RET ; Finalizar interrupción
+	DAA ; Convert A to BCD
+	MOV E, A ; Store result in E
+	MVI B, FFH ; Empty B
+	MVI C, FFH ; Empty B
+	RET ; Return
 	
 CHKSGN2:
-	CPI 2DH ; Comprobar si es -
-	RNZ ; Si no lo es, finalizar interrupción
-	MVI D, 0H ; Establecer signo a positivo
+	CPI 2DH ; is key == '-'?
+	RNZ ; if false, return
+	MVI D, 0H ; sign = positive
 	MOV A, B ; A = B
 	SUB C ; A = B - C 
-	MVI B, FFH ; Vaciar B
-	MVI C, FFH ; Vaciar B
-	MOV E, A ; Guardar resultado en E
-	CPI 0H ; Comprobar si es positivo
-	RP ; Si lo es, finalizar interrupción
-	MVI D, 1H ; Establecer signo a negativo
+	MVI B, FFH ; Empty B
+	MVI C, FFH ; Empty B
+	MOV E, A ; Store result in E
+	CPI 0H ; is result positive?
+	RP ; if true, return
+	MVI D, 1H ; sign = negative
 	XRI FFH ; A = NOT A
-	ADI 1H ; Corregir desviación de XOR
-	MOV E, A ; Guardar resultado en E
-	RET ; Finalizar interrupción
+	ADI 1H ; Fix XOR deviation
+	MOV E, A ; Store result in E
+	RET ; Return
 		
