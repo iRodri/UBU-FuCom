@@ -1,7 +1,7 @@
 ; ---------------------------------
-;  AUTOR: Díaz García, Rodrigo
-;  FECHA: 29 Marzo 2017
-;  PRUEBAS REALIZADAS: Práctica 6
+;  AUTHOR: Díaz García, Rodrigo
+;  DATE: 29 March 2017
+;  ASSIGNMENT: P6
 ; ---------------------------------
 
 .ORG 1000H
